@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Pagination</title>
+    <link rel="stylesheet" href="pagenation.css">
+</head>
+
+<body onload="tabdata(1)">
+    <center><p><h1>PAGINATION</h1></p></center>
+    <div id="h2">
+        <center><table id="table"></table></center>
+        <center><ul id="tag" style="width: 647px;height: 21px;"></ul></center>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        var x = " ";
+        for (i = 1; i <= Math.ceil(data.length / 5); i++) {
+            x += '<button onclick="tabdata(' + i + ');">' + i + '</button>';
+        }
+        document.getElementById("tag").innerHTML = "<button></button>" + x + "<button></button>";
+
+        function tabdata(n) {
+            var n = n * 5;
+            var b = n - 5;
+            var y = " ";
+       
+            for (i = b; i < n; i++) {
+                y += '<tr><td>' + data[i].id + '</td><td>' + data[i].name + '</td><td>' + data[i].email + '</td></tr>';
+                document.getElementById("table").innerHTML = "<th>ID</th><th>NAME</th><th>Email</th>"+y;
+            }
+        }
+    </script>
+</body>
+
+</html>
